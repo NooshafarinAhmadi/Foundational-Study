@@ -6,7 +6,7 @@ Locale.setDefault(Locale.US);
 ```
 sets the default locale to U.S. for consistent number and date formatting.
 
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 ```java
 File orekitData = new File("C:\Users\Adm Local\Desktop\AICOX\Foundational Study\OrekitOrbitSim\orekit-data-main");
 DirectoryCrawler crawler = new DirectoryCrawler(orekitData);
@@ -27,7 +27,7 @@ import java.io.File;   //Represents a file or directory path
 import org.orekit.data.DirectoryCrawler; //to load Orekit data.
 import org.orekit.data.DataContext; //Manages the Orekit data providers, allowing access to the required data.
  ```
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 These values represent the Keplerian elements of the satellite’s orbit.
 ```jav
 double a = 7150000.0;
@@ -59,7 +59,7 @@ double M0 = Math.toRadians(0.0);
 ```
 ![](./images/ima6.PNG)
 
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```jav
 AbsoluteDate startDate = new AbsoluteDate(2025, 3, 18, 0, 0, 0.0, TimeScalesFactory.getUTC());
@@ -75,7 +75,7 @@ and Use UTC time scale which is standard for space simulations.
 import org.orekit.time.AbsoluteDate;   //Represents a specific date and time
 import org.orekit.time.TimeScalesFactory;  //Provides different time scales, such as UTC
  ```
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```jav
 Frame inertialFrame = FramesFactory.getEME2000();
@@ -93,7 +93,7 @@ which is fixed in space, as if we’re observing the satellite from the perspect
 import org.orekit.frames.FramesFactory; //Provides predefined reference frames (e.g, EME2000).
 import org.orekit.frames.Frame; //Represents a reference frame to measure satellite position and velocity.
  ```
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```jav
 Frame earthFrame = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
@@ -111,7 +111,7 @@ import org.orekit.frames.FramesFactory; // Provides methods to create standard f
 import org.orekit.frames.Frame; // Represents a reference frame (e.g., Earth-centered or inertial frame)
 import org.orekit.utils.IERSConventions; // Defines the IERS (International Earth Rotation and Reference Systems) 
 ```
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```java
 Orbit initialOrbit = new KeplerianOrbit(a, e, i, omega, raan, M0,
@@ -133,7 +133,7 @@ import org.orekit.orbits.Orbit;   //General interface for different types of orb
 import org.orekit.orbits.PositionAngleType;  //Specifies the angle type (Mean, True, or Eccentric)
 import org.orekit.utils.Constants;  //Provides predefined constants such as Earth's gravitational parameter (MU)
 ```
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```java
 SpacecraftState initialState = new SpacecraftState(initialOrbit, 1200.0);
@@ -148,7 +148,7 @@ Required libraries:
 ```java
 import org.orekit.propagation.SpacecraftState; // Represents the state of the spacecraft at a given time, including its position, velocity
 ```
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```java
 double minStep = 0.001;
@@ -162,7 +162,7 @@ During the simulation, compute the satellite’s motion step by step,
  * When things are smooth and stable (far from Earth ),
  It switches to larger steps, up to 1000 s, to save computation time.
 
-_____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
+
 
 ```java
 double[][] tolerances = NumericalPropagator.tolerances(10.0, initialOrbit, OrbitType.KEPLERIAN);

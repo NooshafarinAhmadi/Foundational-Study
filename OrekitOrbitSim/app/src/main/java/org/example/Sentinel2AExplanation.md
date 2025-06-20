@@ -8,7 +8,7 @@ sets the default locale to U.S. for consistent number and date formatting.
 
 _____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
 ```java
-File orekitData = new File("C:/Users/Adm Local/Desktop/OrekitOrbitSim/orekit-data-main");
+File orekitData = new File("C:\Users\Adm Local\Desktop\AICOX\Foundational Study\OrekitOrbitSim\orekit-data-main");
 DirectoryCrawler crawler = new DirectoryCrawler(orekitData);
 DataContext.getDefault().getDataProvidersManager().addProvider(crawler);
 ```
@@ -32,32 +32,32 @@ These values represent the Keplerian elements of the satellite’s orbit.
 ```jav
 double a = 7150000.0;
 ```
-![](images/ima1.png)
+![](./images/ima1.png)
 ```jav
 double e = 0.0001;
 ```
-![](images/ima2.png)
+![](./images/ima2.png)
 
 ```jav
 double i = Math.toRadians(98.62);
 ```
-![](images/ima3.png)
+![](./images/ima3.png)
 
 ```jav
 double raan = Math.toRadians(153.0);
 ```
-![](images/ima4.png)
+![](./images/ima4.png)
 
 
 ```jav
 double omega = Math.toRadians(0.0);
 ```
-![](images/ima5.png)
+![](./images/ima5.png)
 
 ```jav
 double M0 = Math.toRadians(0.0);
 ```
-![](images/ima6.png)
+![](./images/ima6.png)
 
 _____________________________________________________________________________________       Next Line     _____________________________________________________________________________________
 
@@ -84,8 +84,8 @@ To simulate an orbit, we need to understand how the satellite moves in space.
 For this, we use a space-based reference frame called EME2000,
 which is fixed in space, as if we’re observing the satellite from the perspective of the stars.
 
-![](images/ima8.png)
-![](images/ima7.png)
+![](./images/ima8.png)
+![](./images/ima7.png)
 
  Required libraries:
   
@@ -102,7 +102,7 @@ Frame earthFrame = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 This line creates an Earth-fixed frame using the ITRF model with IERS 2010 standards.
 It rotates with the Earth and is used to compute positions relative to locations on Earth’s surface.
 
-![](images/ima9.png)
+![](./images/ima9.png)
 
  Required libraries:
   
@@ -123,7 +123,7 @@ position and velocity are computed based on these elements.
 Constants.WGS84_EARTH_MU
 This is Earth’s gravitational parameter (μ). Its value is 3.986004418 × 10¹⁴ m³/s².
 
-![](images/ima10.png)
+![](./images/ima10.png)
 
  Required libraries:
   
@@ -181,7 +181,7 @@ This value directly affects the overall accuracy of the simulation.
  ✅The simulation is faster,
  ❌But you lose accuracy in the satellite’s predicted position.
 
-![](images/ima11.png)
+![](./images/ima11.png)
 
  Required libraries:
   
@@ -199,7 +199,7 @@ a high-precision numerical method for solving ordinary differential equations (O
 It adjusts its time step based on error tolerances:
 
 
-![](images/ima12.png)
+![](./images/ima12.png)
 
 Required libraries:
   
@@ -245,7 +245,7 @@ and tells the propagator where and how the simulation should begin.
 ```java
 NormalizedSphericalHarmonicsProvider gravityProvider = GravityFieldFactory.getNormalizedProvider(6, 6);
 ```
-![](images/ima13.png)
+![](./images/ima13.png)
 
 Required libraries:
   
@@ -269,7 +269,7 @@ and a stable recursive algorithm optimized for high-degree gravity fields,
 based on the 2002 work by Holmes and Featherstone.
 This makes it ideal for precise orbit simulations in modern computing environments.
 
-![](images/ima14.png)
+![](./images/ima14.png)
 
 Required libraries:
   
@@ -307,7 +307,7 @@ This line defines Earth as a rotating ellipsoid using the WGS84 reference model.
 It provides a more realistic representation of Earth’s shape than a simple sphere.
 The frame used is Earth-fixed (ITRF), which allows accurate computation of surface-
 
-![](images/ima15.png)
+![](./images/ima15.png)
 
 Required libraries:
   
@@ -372,7 +372,7 @@ import org.orekit.forces.drag.DragForce;
 ```java
 RadiationSensitive radiationModel = new IsotropicRadiationSingleCoefficient(4.0, 1.5);
 ```
-![](images/ima16.png)
+![](./images/ima16.png)
 
 Required libraries:
   

@@ -43,7 +43,7 @@ public class Sentinel2APropagationPrintback {
             Locale.setDefault(Locale.US);
             System.out.println("Starting 1-year propagation and printing altitude...");
 
-            File orekitData = new File("C:\\Users\\Adm Local\\Desktop\\AICOX\\in work\\OrekitOrbitSim\\orekit-data-main");
+            File orekitData = new File("C:\\Users\\Adm Local\\Desktop\\AICOX\\Foundational Study\\OrekitOrbitSim\\orekit-data-main");
             DirectoryCrawler crawler = new DirectoryCrawler(orekitData);
             DataContext.getDefault().getDataProvidersManager().addProvider(crawler);
 
@@ -93,7 +93,7 @@ public class Sentinel2APropagationPrintback {
             propagator.addForceModel(new ThirdBodyAttraction(CelestialBodyFactory.getMoon()));
 
            
-            PrintWriter writer = new PrintWriter(new FileWriter("C:\\Users\\Adm Local\\Desktop\\AICOX\\in work\\OrekitOrbitSim\\orbit_output.csv"));
+            PrintWriter writer = new PrintWriter(new FileWriter("C:\\Users\\Adm Local\\Desktop\\AICOX\\Foundational Study\\OrekitOrbitSim\\orbit_output.csv"));
             writer.println("Date,Altitude(m),SpecificEnergy(J/kg),Speed(m/s),a(m),e,i(deg),RAAN(deg),Latitude(deg),Longitude(deg)");
 
             propagator.setStepHandler(60.0, currentState -> {

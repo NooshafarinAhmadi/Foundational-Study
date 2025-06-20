@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // اضافه کردن Orekit به عنوان dependency
+    implementation 'org.orekit:orekit:12.0'
+
+    // برای unit test (الان مهم نیست ولی میتونه بمونه)
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+}
+
+application {
+    // کلاس اصلی تو اینه:
+    mainClass = 'org.example.TLEPropagationExample'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
